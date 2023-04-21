@@ -1,10 +1,20 @@
 import random
 
 
-#__________________________________Sakoulaki____________________________________#
-class sakoulaki:
-    def __init__(self, letters):
-        self.letters = letters
+#_____________________________________Sakoulaki_____________________________________#
+class Sakoulaki:
+    def __init__(self):
+        self.letters = []
+        self.letter_counts = {
+            'A': 9, 'B': 2, 'C': 2, 'D': 4, 'E': 12, 'F': 2, 'G': 3, 'H': 2, 'I': 9,
+            'J': 1, 'K': 1, 'L': 4, 'M': 2, 'N': 6, 'O': 8, 'P': 2, 'Q': 1, 'R': 6,
+            'S': 4, 'T': 6, 'U': 4, 'V': 2, 'W': 2, 'X': 1, 'Y': 2, 'Z': 1
+        }
+        self.init_letters()
+
+    def init_letters(self):
+        for letter, count in self.letter_counts.items():
+            self.letters.extend([letter] * count)
 
     def draw_letters(self, num_letters):
         if num_letters > len(self.letters):
@@ -19,18 +29,12 @@ class sakoulaki:
     def get_num_letters(self):
         return len(self.letters)
     
-    def init_letters(self):
-        letter_counts = {
-            'A': 9, 'B': 2, 'C': 2, 'D': 4, 'E': 12, 'F': 2, 'G': 3, 'H': 2, 'I': 9,
-            'J': 1, 'K': 1, 'L': 4, 'M': 2, 'N': 6, 'O': 8, 'P': 2, 'Q': 1, 'R': 6,
-            'S': 4, 'T': 6, 'U': 4, 'V': 2, 'W': 2, 'X': 1, 'Y': 2, 'Z': 1
-        }
-                
     def shuffle(self):
         random.shuffle(self.letters)
 
 
-#______________________________________player___________________________________#
+
+#______________________________________player______________________________________#
 class Player:
     def __init__(self, name):
         self.name = name
@@ -41,7 +45,9 @@ class Player:
     
     def show_letters(self):
         print(f"{self.name}'s letters: {' '.join(self.letters)}")
-        
+
+
+#______________________________________Human________________________________________#        
 class Human(Player):
     def __init__(self, name):
         super().__init__(name)
