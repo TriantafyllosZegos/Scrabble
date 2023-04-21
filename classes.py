@@ -1,7 +1,7 @@
 import random
 
 
-
+#__________________________________Sakoulaki____________________________________#
 class sakoulaki:
     def __init__(self, letters):
         self.letters = letters
@@ -30,6 +30,7 @@ class sakoulaki:
         random.shuffle(self.letters)
 
 
+#______________________________________player___________________________________#
 class Player:
     def __init__(self, name):
         self.name = name
@@ -55,6 +56,7 @@ class Human(Player):
             self.remove_letter(letter)
         return True
 
+#______________________________________PC_________________________________________#
 class Computer(Player):
     def __init__(self, name):
         super().__init__(name)
